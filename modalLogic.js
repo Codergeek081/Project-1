@@ -7,7 +7,7 @@ const errorText = document.getElementById('error');
 
 
 // Create logic for "Add a Task" modal submission that creates an object and saves that object to local storage.
-//     Object name: newTask
+//     Object name: taskFormObject
 //     Object props: taskTitle, taskTimeOfDay, taskEstimatedTime
 //          Event listener should seek id=submitButton
 
@@ -17,7 +17,7 @@ taskForm.addEventListener('submit', function (event) {
     //Check for empty fields, prevent submission if true.
 
     if (!taskTitleInput.value.trim() || !taskTimeOfDayInput.value.trim() || !taskEstimatedTimeInput.value.trim()) {
-        error.textContent = "Please make sure Title, Time of Day, and Estimated Time have been entered before submitting";
+        error.textContent = "Please make sure Title, Time of Day, and Estimated Time have been entered before submitting.";
         return;
     };
 });
@@ -26,7 +26,7 @@ taskForm.addEventListener('submit', function (event) {
 
 function createTaskObject() {
 
-    const taskFormData = {
+    const taskFormObject = {
 
         taskTitle: taskTitleInput.value.trim(),
         taskTimeOfDay: taskTimeOfDayInput.value.trim(),
@@ -36,8 +36,8 @@ function createTaskObject() {
 
     //Save to local storage and console log what is saved
 
-    localStorage.setItem('taskFormData', JSON.stringify(taskFormData));
-    console.log('Saved Task Data:', taskFormData)
+    localStorage.setItem('taskFormObject', JSON.stringify(taskFormObject));
+    console.log('Saved Task Data:', taskFormObject)
 
 };
 
