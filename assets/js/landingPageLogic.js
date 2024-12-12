@@ -2,16 +2,16 @@
 
 const modal = document.getElementById('formModal');
 const openModalButton = document.getElementById('openModalButton');
-const closeModalButton = document.getElementsByClassName('closeModalButton')[0]; // Get the first close button
+const closeModalButton = document.getElementsByClassName('closeModalButton');
 const morningTasklist = document.getElementById('morningTasks');
 const midDayTasklist = document.getElementById('midDayTasks');
-const afternoonTasklist = document.getElementById('afternoonTasks'); // Corrected to afternoonTasks
+const afternoonTasklist = document.getElementById('afternoonTasks');
 
-// Ensure all tasklists are of the datatype ARRAY (Key/value pair: taskTitle, taskTimeOfDay)
+// Ensure all tasklists are of the datatype OBJECT (Key/value pair: taskTitle, taskTimeOfDay)
 
-let morningTasks = [];
-let midDayTasks = [];
-let afternoonTasks = [];
+let morningTasks = {};
+let midDayTasks = {};
+let afternoonTasks = {};
 
 //--------------------------------------------------------------------
 //                MODAL OPEN/CLOSE FUNCTIONS

@@ -5,6 +5,15 @@ const taskTimeOfDayInput = document.getElementById(''); // NEEDS ID
 const taskEstimatedTimeInput = document.getElementById(''); // NEEDS ID
 const errorText = document.getElementById('error'); // NEEDS ID
 
+//--------------------------------------------------------------------
+//                CLEAR AND CLOSE THE MODAL ON FORM SUBMISSION
+//--------------------------------------------------------------------
+
+    taskForm.reset();
+    modal.style.display = 'none'; // Assuming 'modal' is the ID of your modal
+});
+
+
 
 // Create logic for "Add a Task" modal submission that, on submission: creates an object and saves that object to local storage
 //     Object name: taskFormObject
@@ -29,7 +38,7 @@ function createTaskObject() {
     const taskFormObject = {
 
         taskTitle: taskTitleInput.value.trim(),
-        taskTimeOfDay: taskTimeOfDayInput.value.trim(),
+        taskTimeOfDay: document.querySelector('input[name="timeOfDay"]:checked').value, // timeOfDay buttion must be a radio button
         taskEstimatedTime: taskEstimatedTimeInput.value.trim(),
 
     };
