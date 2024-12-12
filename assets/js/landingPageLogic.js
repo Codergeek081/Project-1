@@ -2,7 +2,7 @@
 
 const modal = document.getElementById('formModal');
 const openModalButton = document.getElementById('openModalButton');
-const closeModalButton = document.getElementById('closeModalButton');
+const closeModalButton = document.getElementsByClassName('closeModalButton');
 
 // Add "onclick" to openModalButton that changes the style of the modal to "block"
 
