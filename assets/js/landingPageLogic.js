@@ -30,12 +30,13 @@ closeModalButton.onclick = function () {
 };
 
 // Add "onclick" to the area outside of the modal to close when clicked
+//     This is no longer needed, as the click-off modal event is handled by Bootstrap
 
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// };
 
 //--------------------------------------------------------------------
 //                RENDER/WRITE TASKLIST FUNCTIONS
