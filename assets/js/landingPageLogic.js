@@ -85,5 +85,39 @@ function renderAfternoonTasks() {
 };
 
 //--------------------------------------------------------------------
-// INITIALIZE TASKLISTS FUNCTION (Functions executed on page load)
+// INITIALIZE TASKLISTS AND RENDER TASKS FUNCTION (Functions executed on page load)
 //--------------------------------------------------------------------
+
+function renderTasks() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    
+
+    // Iterate through each task and append to the appropriate list
+    tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.textContent = task.taskTitle; // Set the text content to the task title
+        li.setAttribute('data-index', tasks.indexOf(task)); // Set index if needed
+
+        // Append to the appropriate tasklist based on taskTimeOfDay
+        if (task.taskTimeOfDay === 'morningTask') {
+            document.getElementById('morningTasks').appendChild(li);
+        } else if (task.taskTimeOfDay === 'midDayTask') {
+            document.getElementById('midDayTasks').appendChild(li);
+        } else if (task.taskTimeOfDay === 'afternoonTask') {
+            document.getElementById('afternoonTasks').appendChild(li);
+        }
+    });
+};
+
+
+//--------------------------------------------------------------------
+// This is duplicating the task list items on form submission
+//--------------------------------------------------------------------
+
+// Call this function on page load
+function initialize() {
+    renderTasks(); // Render tasks from local storage
+}
+
+// Execute initialize function when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initialize);

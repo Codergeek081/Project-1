@@ -1,8 +1,6 @@
 // Create variables that select the form and input elements
 const taskForm = document.getElementById('modalForm');
 const taskTitleInput = document.getElementById('taskTitleInput');
-const taskTimeOfDayInput = document.getElementsByClassName('timeOfDaySelect');
-const timeOfDaySelect = document.getElementsByClassName('timeOfDaySelect');
 const submitFormButton = document.getElementById('submitButton');
 const errorText = document.getElementById('error');
 
@@ -21,41 +19,51 @@ const errorText = document.getElementById('error');
 //     Object keys: taskTitle and taskTimeOfDay
 //          Event listener should seek id=submitButton
 
+// Event listener for the submit button
 submitFormButton.addEventListener('click', function (event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent the default form submission behavior
 
-    //Check for empty fields, prevent submission if true
+    // Check for empty fields, prevent submission if true
+    if (!taskTitleInput.value.trim() || !document.querySelector('input[name="Time of Day"]:checked')) {
+        errorText.textContent = "Please make sure that a task has been entered and a time of day has been selected.";
+        return; // Exit the function if validation fails
+    }
 
-    if (!taskTitleInput.value.trim() || !taskTimeOfDayInput.value) {
-        error.textContent = "Please make sure that a task has been entered and a time of day has been selected.";
-        return;
-    };
-
+    // If validation passes, create the task object
     createTaskObject();
+
+    // **RENDERING THE TASKS HERE IS CAUSING DUPLICATION ON FORM SUBMISSION**
+    // renderTasks();
 
 });
 
 // Create taskObject
 
+// Create taskObject
 function createTaskObject() {
-
     const taskObject = {
-
         taskTitle: taskTitleInput.value.trim(),
-        taskTimeOfDay: document.querySelector('input[name="timeOfDay"]:checked').value, // timeOfDay buttion must be a radio button
-
+        taskTimeOfDay: document.querySelector('input[name="Time of Day"]:checked').value // Get the selected radio button value
     };
 
-    //Save to local storage and console log what is saved
+    // Retrieve existing tasks from local storage
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || []; // Initialize as empty array if no tasks exist
 
-    localStorage.setItem('taskObject', JSON.stringify(taskObject));
+    // Add the new task object to the tasks array
+    tasks.push(taskObject);
+
+    // Save the updated tasks array back to local storage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
     console.log('Saved Task Data:', taskObject);
 
     // Clear the form inputs and close the modal
     taskForm.reset(); // Reset the form fields
-    modal.style.display = 'none'; // Close the modal
     errorText.textContent = ""; // Clear any error messages
 
+    // Hide the Bootstrap Modal
+    const modal = document.getElementById('formModal');
+    const bootstrapModal = bootstrap.Modal.getInstance(modal); // Get the Bootstrap modal instance
+    bootstrapModal.hide(); // Hide the modal
 };
 
 //--------------------------------------------------------------------
