@@ -23,12 +23,13 @@
 
           <input type="text" id="taskTitleInput" placeholder="What are you doing today?"></input><br>
           <h4>When does it have to be done?</h4>
-          <input type="radio" id="morning" name="Time of Day" value="morningTask"></input>
+          <input type="radio" class="timeOfDaySelect" name="Time of Day" value="morningTask"></input>
           <label for="morning">Morning</label><br>
-          <input type="radio" id="midDay" name="Time of Day" value="midDayTask"></input>
+          <input type="radio" class="timeOfDaySelect" name="Time of Day" value="midDayTask"></input>
           <label for="midDay">Mid-Day</label><br>
-          <input type="radio" id="afternoon" name="Time of Day" value="afternoonTask"></input>
+          <input type="radio" class="timeOfDaySelect" name="Time of Day" value="afternoonTask"></input>
           <label for="afternoon">Afternoon</label><br>
+          <p id="error" style="color: red;"></p>
           <br>
           <button id="submitButton">Submit</button>
           <button id="closeModalButton">Cancel</span>

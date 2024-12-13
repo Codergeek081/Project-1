@@ -1,18 +1,16 @@
 // Create variables that select the form and input elements
-const taskForm = document.getElementById(''); // NEEDS ID
-const taskTitleInput = document.getElementById(''); // NEEDS ID
-const taskTimeOfDayInput = document.getElementById(''); // NEEDS ID
-const taskEstimatedTimeInput = document.getElementById(''); // NEEDS ID
+const taskForm = document.getElementById('formModal');
+const taskTitleInput = document.getElementById('taskTitleInput');
+const taskTimeOfDayInput = document.getElementsByClassName('timeOfDaySelect');
 const submitFormButton = document.getElementById('submitButton');
-const errorText = document.getElementById('error'); // NEEDS ID
+const errorText = document.getElementById('error');
 
 //--------------------------------------------------------------------
 //                CLEAR AND CLOSE THE MODAL ON FORM SUBMISSION
 //--------------------------------------------------------------------
 
-    taskForm.reset();
-    modal.style.display = 'none'; // Assuming 'modal' is the ID of your modal
-});
+    // taskForm.reset();
+    modal.style.display = 'none';
 
 
 
@@ -21,13 +19,13 @@ const errorText = document.getElementById('error'); // NEEDS ID
 //     Object props: taskTitle, taskTimeOfDay, taskEstimatedTime
 //          Event listener should seek id=submitButton
 
-taskForm.addEventListener('submit', function (event) {
+submitFormButton.addEventListener('click', function (event) {
     event.preventDefault();
 
     //Check for empty fields, prevent submission if true
 
-    if (!taskTitleInput.value.trim() || !taskTimeOfDayInput.value.trim() || !taskEstimatedTimeInput.value.trim()) {
-        error.textContent = "Please make sure Title, Time of Day, and Estimated Time have been entered before submitting.";
+    if (!taskTitleInput.value.trim() || !taskTimeOfDayInput.value) {
+        error.textContent = "Please make sure that a task has been entered and a time of day has been selected.";
         return;
     };
 });
@@ -40,7 +38,6 @@ function createTaskObject() {
 
         taskTitle: taskTitleInput.value.trim(),
         taskTimeOfDay: document.querySelector('input[name="timeOfDay"]:checked').value, // timeOfDay buttion must be a radio button
-        taskEstimatedTime: taskEstimatedTimeInput.value.trim(),
 
     };
 
