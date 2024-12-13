@@ -2,8 +2,10 @@
 const taskForm = document.getElementById('modalForm');
 const taskTitleInput = document.getElementById('taskTitleInput');
 const taskTimeOfDayInput = document.getElementsByClassName('timeOfDaySelect');
+const timeOfDaySelect = document.getElementsByClassName('timeOfDaySelect');
 const submitFormButton = document.getElementById('submitButton');
 const errorText = document.getElementById('error');
+
 
 //--------------------------------------------------------------------
 //                CLEAR AND CLOSE THE MODAL ON FORM SUBMISSION
@@ -47,7 +49,12 @@ function createTaskObject() {
     //Save to local storage and console log what is saved
 
     localStorage.setItem('taskObject', JSON.stringify(taskObject));
-    console.log('Saved Task Data:', taskObject)
+    console.log('Saved Task Data:', taskObject);
+
+    // Clear the form inputs and close the modal
+    taskForm.reset(); // Reset the form fields
+    modal.style.display = 'none'; // Close the modal
+    errorText.textContent = ""; // Clear any error messages
 
 };
 
