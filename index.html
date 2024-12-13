@@ -9,6 +9,31 @@
 
 <body>
   <!-- This is where most of the html code will go -->
+    <nav>
+        <h1>Your Tasks For Today:</h1>
+        <button id="openModalButton">Add a Task</button>
+    </nav>
+
+    <!-- THE "ADD A TASK" MODAL -->
+
+    <div id="formModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+
+          <input type="text" id="taskTitleInput" placeholder="What are you doing today?"></input><br>
+          <h4>When does it have to be done?</h4>
+          <input type="radio" id="morning" name="Time of Day" value="morningTask"></input>
+          <label for="morning">Morning</label><br>
+          <input type="radio" id="midDay" name="Time of Day" value="midDayTask"></input>
+          <label for="midDay">Mid-Day</label><br>
+          <input type="radio" id="afternoon" name="Time of Day" value="afternoonTask"></input>
+          <label for="afternoon">Afternoon</label><br>
+          <br>
+          <button id="submitButton">Submit</button>
+          <button id="closeModalButton">Cancel</span>
+        </div>
+      </div>
 
   <!-- This is the bottom of the HTML code-->
 

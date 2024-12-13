@@ -3,6 +3,7 @@ const taskForm = document.getElementById(''); // NEEDS ID
 const taskTitleInput = document.getElementById(''); // NEEDS ID
 const taskTimeOfDayInput = document.getElementById(''); // NEEDS ID
 const taskEstimatedTimeInput = document.getElementById(''); // NEEDS ID
+const submitFormButton = document.getElementById('submitButton');
 const errorText = document.getElementById('error'); // NEEDS ID
 
 //--------------------------------------------------------------------
