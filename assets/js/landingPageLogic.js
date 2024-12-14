@@ -85,7 +85,7 @@ function renderAfternoonTasks() {
 };
 
 //--------------------------------------------------------------------
-// INITIALIZE TASKLISTS AND RENDER TASKS FUNCTION (Functions executed on page load)
+// TASKLISTS AND RENDERTASKS() FUNCTION (Functions executed on page load)
 //--------------------------------------------------------------------
 
 function renderTasks() {
@@ -94,9 +94,18 @@ function renderTasks() {
 
     // Iterate through each task and append to the appropriate list
     tasks.forEach(task => {
+
+        // DO NOT append existing tasks to existing taskObject
+        const previouslyRenderedTasks = document.getElementById(tasks.indexOf(task));
+
+        if (previouslyRenderedTasks) {
+            previouslyRenderedTasks.remove();
+        }
+
         const li = document.createElement('li');
         li.textContent = task.taskTitle; // Set the text content to the task title
         li.setAttribute('data-index', tasks.indexOf(task)); // Set index if needed
+        li.setAttribute('id' , tasks.indexOf(task));
 
         // Append to the appropriate tasklist based on taskTimeOfDay
         if (task.taskTimeOfDay === 'morningTask') {

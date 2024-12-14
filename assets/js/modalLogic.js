@@ -33,7 +33,7 @@ submitFormButton.addEventListener('click', function (event) {
     createTaskObject();
 
     // **RENDERING THE TASKS HERE IS CAUSING DUPLICATION ON FORM SUBMISSION**
-    // renderTasks();
+    renderTasks();
 
 });
 
@@ -64,6 +64,10 @@ function createTaskObject() {
     const modal = document.getElementById('formModal');
     const bootstrapModal = bootstrap.Modal.getInstance(modal); // Get the Bootstrap modal instance
     bootstrapModal.hide(); // Hide the modal
+
+
+
+
 };
 
 //--------------------------------------------------------------------
