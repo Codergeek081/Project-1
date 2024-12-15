@@ -46,11 +46,6 @@ function renderMorningTasks() {
         li.textContent = morningTask;
         li.setAttribute('data-index', i);
         morningTasklist.appendChild(li);
-
-        const removeTaskButton = document.createElement('button');
-        removeButton.textContent = 'X';
-        removeButton.setAttribute('data-index', tasks.indexOf(task));
-        removeButton.setAttribute('id', tasks.indexOf(task)); //indexOf(i) ????
     }
 };
 
