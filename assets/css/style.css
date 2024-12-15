@@ -34,3 +34,8 @@
     text-decoration: none;
     cursor: pointer;
   } */
+
+  .nav-buttons {
+    margin-left: auto;
+    margin-right: 0;
+  }

@@ -15,26 +15,29 @@
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" id="openModalButton">Welcome to your Tasklist!</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal"
-              data-bs-target="#formModal">Add a Task</a>
-          </li>
-        </ul>
-        <!-- TASK SEARCHBAR - PART OF COPIED BOOTSTRAP CODE -->
-        <!-- <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form> -->
-      </div>
+        <h4 class="navbar-brand" id="openModalButton" style="color: black; text-shadow: black;">Current Date/Time:</h4>
+        <h5 class="navbar-header" id="currentTime" style="color: grey;"></h5>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- ADD NEW NAVBAR ITEMS HERE -->
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> <!-- THIS STICKS THE ADD-A-TASK AND END-THE-DAY BUTTONS TO THE RIGHT WHEN FULLSCREEN -->
+                <li class="nav-item">
+                    <a class="nav-link active add-a-task-link" aria-current="page" href="#" data-bs-toggle="modal"
+                        data-bs-target="#formModal">Add a Task (+)</a>
+                </li>
+                <h3 style="color: grey;"> | </h3>
+                <li class="nav-item">
+                    <button class="nav-link active remove-all-tasks-link" aria-current="page" style="color: lightcoral;">Clear All Tasks</button>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
 
   <!-- THE "ADD A TASK" MODAL -->
 
@@ -79,9 +82,15 @@
       </div>
       <div class="col-10">
         <h4>Morning Tasks:</h4>
+        <h5>(9:00am - 12:00pm)</h5>
         <!-- RENDER MORNING TASK CARDS HERE- COPIED FROM BOOTSTRAP -->
         <div class="card">
           <div class="card-body">
+            <h6 class="emptyMorning" style="color: darkolivegreen">Your recurring morning tasks:
+              <ul>
+                <li style="color: grey;">Morning Standup Meeting @ 10:05</li>
+              </ul>
+            </h6>
             <ul id="morningTasks">
               <!-- MORNING TASK LIST ITEMS GO HERE -->
             </ul>
@@ -102,9 +111,15 @@
         </div>
         <div class="col-10">
           <h4>Mid-Day Tasks:</h4>
+          <h5>(12:00pm - 3:00pm)</h5>
           <!-- RENDER MIDDAY TASK CARDS HERE - COPIED FROM BOOTSTRAP-->
           <div class="card">
             <div class="card-body">
+              <h6 class="emptyMidDay" style="color: darkolivegreen">Your recurring mid-day tasks:
+                <ul>
+                  <li style="color: grey;">Lunch @ 12:30</li>
+                </ul>
+              </h6>
               <ul id="midDayTasks">
                 <!-- MID-DAY TASK LIST ITEMS GO HERE -->
               </ul>
@@ -125,9 +140,15 @@
           </div>
           <div class="col-10">
             <h4>Afternoon Tasks:</h4>
+            <h5>(3:00pm - 6:00pm)</h5>
             <!-- RENDER AFTERNOON TASK CARDS HERE - COPIED FROM BOOTSTRAP -->
             <div class="card">
               <div class="card-body">
+                <h6 class="emptyAfternoon" style="color: darkolivegreen;">Your recurring afternoon tasks:
+                  <ul>
+                    <li style="color: grey;">Inventory Integration Request Auditing @ 4:05</li>
+                  </ul>
+                </h6>
                 <ul id="afternoonTasks">
                   <!-- AFTERNOON TASK LIST ITEMS GO HERE -->
                 </ul>
