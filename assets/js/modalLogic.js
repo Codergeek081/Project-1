@@ -13,14 +13,8 @@ const errorText = document.getElementById('error');
     modal.style.display = 'none';
 
 
-
-// Create logic for "Add a Task" modal submission that, on submission: creates an object and saves that object to local storage
-//     Object name: taskObject
-//     Object keys: taskTitle and taskTimeOfDay
-//          Event listener should seek id=submitButton
-
-// Event listener for the submit button
-submitFormButton.addEventListener('click', function (event) {
+    // Event listener for the submit button
+    submitFormButton.addEventListener('click', function (event) {
     event.preventDefault(); // Prevent the default form submission behavior
 
     // Check for empty fields, prevent submission if true
@@ -37,14 +31,13 @@ submitFormButton.addEventListener('click', function (event) {
 
 });
 
-// Create taskObject
 
-// Create taskObject
-function createTaskObject() {
-    const taskObject = {
-        taskTitle: taskTitleInput.value.trim(),
-        taskTimeOfDay: document.querySelector('input[name="Time of Day"]:checked').value // Get the selected radio button value
-    };
+    // Create taskObject
+    function createTaskObject() {
+        const taskObject = {
+            taskTitle: taskTitleInput.value.trim(),
+            taskTimeOfDay: document.querySelector('input[name="Time of Day"]:checked').value // Get the selected radio button value
+        };
 
     // Retrieve existing tasks from local storage
     let tasks = JSON.parse(localStorage.getItem('tasks')) || []; // Initialize as empty array if no tasks exist
@@ -66,19 +59,4 @@ function createTaskObject() {
     bootstrapModal.hide(); // Hide the modal
 
 
-
-
 };
-
-//--------------------------------------------------------------------
-// COLLAPSE THE NAVBAR WHEN "ADD A TASK" IS SELECTED - CURRENTLY BORKED
-//--------------------------------------------------------------------
-
-// document.getElementById('addTaskLink').addEventListener('click', function() {
-//     // Collapse the navbar
-//     var navbarCollapse = document.getElementById('navbarSupportedContent');
-//     var bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-//       toggle: false
-//     });
-//     bsCollapse.hide(); // Hide the navbar
-//   });

@@ -13,16 +13,16 @@
 
 ### Technologies Used
 
-1.) HTML5
-2.) CSS / Bootstrap
-3.) JavaScript
+1.) HTML5\
+2.) CSS / Bootstrap\
+3.) JavaScript\
 4.) Local Storage
 
 ### Future Updates and Features
 
-1.) Editing existing task descriptions
-2.) Removing or "Checking" individual tasks
-3.) Time data visualization in the form of a progress bar for each segment of your day
+1.) Editing existing task descriptions\
+2.) Removing or "Checking" individual tasks\
+3.) Time data visualization in the form of a progress bar for each segment of your day\
 4.) Importing and exporting data to/from your favorite digital calendar
 
 ### Link to Deployed Application:
