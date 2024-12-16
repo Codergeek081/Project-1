@@ -35,7 +35,7 @@
     cursor: pointer;
   } */
    /* makes page background blend from grey to white */
-  body{
+   body{
     background: linear-gradient( rgb(212, 210, 210), white);
     background-repeat: no-repeat;
   }
