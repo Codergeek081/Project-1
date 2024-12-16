@@ -6,6 +6,7 @@ const closeModalButton = document.getElementsByClassName('closeModalButton');
 const morningTasklist = document.getElementById('morningTasks');
 const midDayTasklist = document.getElementById('midDayTasks');
 const afternoonTasklist = document.getElementById('afternoonTasks');
+const endDayButton = document.querySelector('.remove-all-tasks-link');
 
 // Ensure all tasklists are of the datatype OBJECT (Key/value pair: taskTitle, taskTimeOfDay)
 
@@ -29,14 +30,6 @@ closeModalButton.onclick = function () {
     modal.style.display = "none";
 };
 
-// Add "onclick" to the area outside of the modal to close when clicked
-//     This is no longer needed, as the click-off modal event is handled by Bootstrap
-
-// window.onclick = function(event) {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// };
 
 //--------------------------------------------------------------------
 //                RENDER/WRITE TASKLIST FUNCTIONS
@@ -105,7 +98,8 @@ function renderTasks() {
         const li = document.createElement('li');
         li.textContent = task.taskTitle; // Set the text content to the task title
         li.setAttribute('data-index', tasks.indexOf(task)); // Set index if needed
-        li.setAttribute('id' , tasks.indexOf(task));
+        li.setAttribute('id', tasks.indexOf(task));
+
 
         // Append to the appropriate tasklist based on taskTimeOfDay
         if (task.taskTimeOfDay === 'morningTask') {
@@ -117,6 +111,44 @@ function renderTasks() {
         }
     });
 };
+
+
+    // Add an event listener for the End the Day button
+        endDayButton.addEventListener('click', function() {
+        // Clear tasks from local storage
+        localStorage.removeItem('tasks'); // This will clear all tasks
+
+            renderMorningTasks();
+            renderMidDayTasks();
+            renderAfternoonTasks();
+
+        });
+
+    // Add current date/time to navbar displayed text
+
+    function updateDateTime() {
+        const now = new Date(); // Get the current date and time
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit', 
+            hour12: true 
+        };
+        
+        const formattedDateTime = now.toLocaleString('en-US', options); // Format the date and time
+        document.getElementById('currentTime').textContent = `${formattedDateTime}`; // Update the navbar
+    };
+    
+    // Call the function to set the initial date and time
+    updateDateTime();
+    
+    // Optionally, update the time every second
+    setInterval(updateDateTime, 1000);
+
 
 
 //--------------------------------------------------------------------
