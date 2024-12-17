@@ -26,7 +26,7 @@ visit url.
 ##### Input Modal:
 ![screenshot of the data input modal](<assets/images/modalFullScreen.jpg>)
 ##### Responsive Layout:
-![screenshot of the Landing page ](<assets/images/modalFullScreen.jpg>)
+![screenshot of the Landing page ](<assets/images/responsiveLayout.jpg>)
 
 
 
