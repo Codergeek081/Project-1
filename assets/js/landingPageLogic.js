@@ -15,7 +15,7 @@ let midDayTasks = {};
 let afternoonTasks = {};
 
 //--------------------------------------------------------------------
-//                MODAL OPEN/CLOSE FUNCTIONS
+//                   MODAL OPEN/CLOSE FUNCTIONS
 //--------------------------------------------------------------------
 
 // Add "onclick" to openModalButton that changes the style of the modal to "block"
@@ -129,8 +129,7 @@ function renderTasks() {
     function updateDateTime() {
         const now = new Date(); // Get the current date and time
         const options = { 
-            weekday: 'long', 
-            year: 'numeric', 
+            weekday: 'short', 
             month: 'long', 
             day: 'numeric', 
             hour: '2-digit', 
@@ -152,7 +151,7 @@ function renderTasks() {
 
 
 //--------------------------------------------------------------------
-// This is duplicating the task list items on form submission
+//             RUN RENDERTASKS FUNCTION ON PAGE LOAD
 //--------------------------------------------------------------------
 
 // Call this function on page load
